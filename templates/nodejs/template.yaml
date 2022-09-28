@@ -46,12 +46,12 @@ spec:
           ui:field: OwnedEntityPicker
           ui:options:
             allowedKinds:
-            - System
+              - System
         environments:
           title: Environments
           type: string
           description: Environments needed by this application
-          enum: ["development,staging,production"]
+          enum: ["development", "staging", "production"]
     - title: Choose a location
       required:
         - repoUrl
@@ -87,7 +87,7 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com']
+        allowedHosts: ["github.com"]
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
@@ -99,7 +99,7 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        catalogInfoPath: "/catalog-info.yaml"
 
   # Outputs are displayed to the user after a successful execution of the template.
   output:
