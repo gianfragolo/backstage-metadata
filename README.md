@@ -1,2 +1,3 @@
-# backstage-metadata
-Sample metadata for backstage
+# Backstage Metadata
+
+Sample metadata for gianfragolo organization.

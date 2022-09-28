@@ -1,0 +1,62 @@
+## DOMAIN
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: operations
+  description: Everything about IT Operations
+spec:
+  owner: devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: payments
+  description: Everything about Payments
+spec:
+  owner: product-development
+---
+## SYSTEM
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: cloud-resources
+  description: Everything about Cloud Management
+spec:
+  owner: devops
+  domain: operations
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: process-improvement
+  description: Everything about the improvement of development process (tools, services, etc.)
+spec:
+  owner: platform-engineering
+  domain: operations
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: payment-landing
+  description: Everything about the UI for payment landing page
+spec:
+  owner: customer-experience
+  domain: payments
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: payment-checkout
+  description: Everything about the UI for payment checkout page
+spec:
+  owner: customer-experience
+  domain: payments
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: payment-gateway
+  description: Everything about the payment gateway integrations
+spec:
+  owner: backend-api
+  domain: payments
