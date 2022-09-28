@@ -6,5 +6,5 @@ metadata:
     github.com/project-slug: gianfragolo/${{ values.name | dump }}
 spec:
   type: service
-  owner: user:${{ values.owner | dump }}
+  owner: group:${{ values.owner | dump }}
   lifecycle: experimental
