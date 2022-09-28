@@ -1,3 +1,3 @@
 # Backstage Metadata
 
-Sample metadata for gianfragolo organization.
+Sample metadata for Gianfragolo Github organization.
