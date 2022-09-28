@@ -2,9 +2,13 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.name | dump }}
+  description: ${{ values.description | dump }}
   annotations:
     github.com/project-slug: gianfragolo/${{ values.name }}
+  labels:
+    environments: ${{values.environments.replaceAll(',','-')}}
 spec:
   type: service
   owner: group:${{ values.owner }}
+  system: ${{ values.application }}
   lifecycle: experimental

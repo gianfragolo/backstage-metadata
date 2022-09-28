@@ -16,6 +16,9 @@ spec:
       required:
         - name
         - owner
+        - application
+        - description
+        - environments
       properties:
         name:
           title: Name
@@ -24,6 +27,10 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
         owner:
           title: Owner
           type: string
@@ -32,6 +39,19 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        application:
+          title: Application
+          type: string
+          description: Application which this component belongs to
+          ui:field: OwnedEntityPicker
+          ui:options:
+            allowedKinds:
+            - System
+        environments:
+          title: Environments
+          type: string
+          description: Environments needed by this application
+          enum: ["development,staging,production"]
     - title: Choose a location
       required:
         - repoUrl
@@ -43,6 +63,8 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+            allowedOwners:
+              - gianfragolo
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
@@ -56,6 +78,9 @@ spec:
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
+          application: ${{ parameters.application }}
+          description: ${{ parameters.description }}
+          environments: ${{ parameters.environments }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
@@ -65,6 +90,8 @@ spec:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: public
+        deleteBranchOnMerge: true
 
     # The final step is to register our new component in the catalog.
     - id: register
