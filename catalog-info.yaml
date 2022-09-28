@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-metadata
+  description: Metadata describing Giangrafolo organization
+  links:
+    - url: https://github.com/gianfragolo/backstage-metadata
+      title: Github
+  annotations:
+    github.com/project-slug: gianfragolo/backstage-metadata
+spec:
+  type: metadata
+  owner: lucamilan
+  lifecycle: experimental
