@@ -3,7 +3,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: example-nodejs-template
-  title: Example Node.js Template
+  title: Node.js Simple Template
   description: An example template for the scaffolder that creates a simple Node.js service
 spec:
   owner: group:platform-engineering
@@ -55,6 +55,7 @@ spec:
         url: ./content
         values:
           name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish

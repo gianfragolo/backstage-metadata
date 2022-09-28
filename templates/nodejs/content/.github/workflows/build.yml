@@ -1,4 +1,4 @@
-name: "Build Node ${{ values.name | dump }}"
+name: "Build app ${{ values.name }}"
 
 on:
   push:
