@@ -10,5 +10,6 @@ metadata:
     github.com/project-slug: gianfragolo/backstage-metadata
 spec:
   type: metadata
+  system: process-improvement
   owner: group:platform-engineering
   lifecycle: experimental
