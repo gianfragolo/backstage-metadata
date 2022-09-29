@@ -81,7 +81,9 @@ spec:
           application: ${{ parameters.application }}
           description: ${{ parameters.description }}
           environments: ${{ parameters.environments }}
-          repoUrl: ${{ parameters.repoUrl }}
+          repo_url: ${{ parameters.repoUrl  | parseRepoUrl }}
+          repo_name: ${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
+          repo_owner: ${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish

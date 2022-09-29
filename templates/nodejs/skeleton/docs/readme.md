@@ -17,4 +17,6 @@ Here some details
 * application: ${{ values.application }}
 * description: ${{ values.description }}
 * environments: ${{ values.environments }}
-* repoUrl: ${{ values.repoUrl }}
+* repoUrl: ${{ values.repo_url }}
+* repoName: ${{ values.repo_name }}
+* repoOwner: ${{ values.repo_owner }}

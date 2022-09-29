@@ -1,6 +1,6 @@
 site_name: ${{ values.name | dump }}
-site_description: ${{ values.description | dump }} Documentation
-repo_url: ${{ values.repoUrl }}
+site_description: ${{ values.description | dump }}
+repo_url: ${{ values.repo_url }}
 edit_uri: edit/master/docs
 
 nav:
