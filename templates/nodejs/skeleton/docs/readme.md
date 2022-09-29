@@ -20,3 +20,4 @@ Here some details
 * repoUrl: ${{ values.repo_url }}
 * repoName: ${{ values.repo_name }}
 * repoOwner: ${{ values.repo_owner }}
+* repoHost: ${{ values.repo_host }}
