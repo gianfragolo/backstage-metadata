@@ -1,0 +1,13 @@
+site_name: ${{ values.name | dump }}
+site_description: ${{ values.description | dump }} Documentation
+repo_url: ${{ values.repoUrl }}
+edit_uri: edit/master/docs
+
+nav:
+  - "Home": "index.md"
+  - "Getting Started": "getting-started.md"
+  - "Code of Conduct": "CODE_OF_CONDUCT.md"
+  - "Readme": "readme.md"
+
+plugins:
+  - techdocs-core

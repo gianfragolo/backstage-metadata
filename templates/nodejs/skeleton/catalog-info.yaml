@@ -5,6 +5,7 @@ metadata:
   description: ${{ values.description | dump }}
   annotations:
     github.com/project-slug: gianfragolo/${{ values.name }}
+    backstage.io/techdocs-ref: dir:.
   labels:
     environments: ${{values.environments.replaceAll(',','-')}}
 spec:

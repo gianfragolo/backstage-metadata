@@ -74,13 +74,14 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./content
+        url: ./skeleton
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
           application: ${{ parameters.application }}
           description: ${{ parameters.description }}
           environments: ${{ parameters.environments }}
+          repoUrl: ${{ parameters.repoUrl }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
