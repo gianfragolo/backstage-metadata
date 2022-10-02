@@ -99,7 +99,8 @@ spec:
         repoVisibility: public
         deleteBranchOnMerge: true
         access: gianfragolo/${{ parameters.owner }}
-
+        protectDefaultBranch: false
+        
     - id: register
       name: Register
       action: catalog:register
