@@ -14,6 +14,7 @@ Here some details
 
 * name: ${{ values.name }}
 * owner: ${{ values.owner }}
+* system: ${{ values.system }}
 * solution_id: ${{ values.solution_id }}
 * description: ${{ values.description }}
 * namespace: ${{ values.namespace }}
