@@ -3,6 +3,12 @@ kind: API
 metadata:
   name: ${{ values.name | dump }}
   description: ${{ values.description | dump }}
+  tags:
+    - c#
+    - api
+    - rest
+    - aspnet
+    - dotnet
   annotations:
     github.com/project-slug: gianfragolo/${{ values.repo_name }}
     backstage.io/techdocs-ref: dir:.
@@ -26,44 +32,43 @@ spec:
   # definition:
   #   $text: https://googlepay-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
   definition: |
-      {
-      "openapi": "3.0.1",
-      "info": {
-        "title": ${{ values.name | dump }},
-        "version": "1.0"
-      },
-      "paths": {
-        "/Rest": {
-          "get": {
-            "tags": [
-              "Rest"
-            ],
-            "operationId": "Get",
-            "responses": {
-              "200": {
-                "description": "Success",
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    }
-                  },
-                  "application/json": {
-                    "schema": {
-                      "type": "string"
-                    }
-                  },
-                  "text/json": {
-                    "schema": {
-                      "type": "string"
-                    }
+    {
+    "openapi": "3.0.1",
+    "info": {
+      "title": ${{ values.name | dump }},
+      "version": "1.0"
+    },
+    "paths": {
+      "/Rest": {
+        "get": {
+          "tags": [
+            "Rest"
+          ],
+          "operationId": "Get",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "string"
                   }
                 }
               }
             }
           }
         }
-      },
-      "components": { }
       }
-          
+    },
+    "components": { }
+    }

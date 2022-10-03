@@ -3,6 +3,9 @@ kind: Component
 metadata:
   name: ${{ values.name | dump }}
   description: ${{ values.description | dump }}
+  tags:
+    - nodejs
+    - javascript
   annotations:
     github.com/project-slug: gianfragolo/${{ values.name }}
     backstage.io/techdocs-ref: dir:.
