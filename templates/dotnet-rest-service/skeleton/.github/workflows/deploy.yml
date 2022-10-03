@@ -1,0 +1,19 @@
+name: pull-request
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  repository_dispatch:
+    types: [build-image]
+
+jobs:
+  dotnet-cd:
+    uses: gianfragolo/backstage-metadata/.github/workflows/deploy-image.yml@main
+    secrets: inherit
+    with:
+      component: ${{values.component_id|lower}}

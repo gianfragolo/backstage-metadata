@@ -1,0 +1,28 @@
+name: build a dotnet application
+on:
+  workflow_call:
+    inputs:
+      component:
+        description: "The name of the .NET component"
+        required: true
+        type: string
+
+jobs:
+  deploy-image-to-okteto:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      tag: ${{ steps.vars.outputs.tag }}
+    steps:
+      - name: set repo name
+        shell: bash
+        run: |
+          echo "REPOSITORY_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
+      - name: Set current IMAGE_TAG
+        id: vars
+        run: |
+          if [ -z "${{ github.event.client_payload.tag }}"]; then echo "::set-output name=tag::latest"; exit 0; else echo "::set-output name=tag::${{github.event.client_payload.tag}}"; fi;
+      - name: Get current IMAGE_TAG
+        run: echo "${{ steps.vars.outputs.tag }}" "${{ github.event_name }}" "${{ github.ref }}"
