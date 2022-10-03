@@ -21,6 +21,9 @@ jobs:
         run: |
           echo "REPOSITORY_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
 
+      - name: ✔️ Checkout git repository
+        uses: actions/checkout@v3
+
       - name: 🧰 Set current IMAGE_TAG
         id: vars
         run: |
