@@ -16,6 +16,7 @@ public class RestController : ControllerBase
     [HttpGet(Name = "Get")]
     public string Get()
     {
-        return "Hello Backstage from ${{values.name}} ";
+        _logger.LogInformation("Api log made by Backstage");
+        return "Hello Backstage, by ${{values.name}}";
     }
 }

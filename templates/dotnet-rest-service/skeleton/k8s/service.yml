@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${{ values.component_id }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: ${{ values.component_id | dump }}
+      port: 5000
+  selector:
+    app: ${{ values.component_id }}
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ${{ values.component_id }}
+  annotations:
+    dev.okteto.com/generate-host: ${{ values.component_id }}
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: ${{ values.component_id }}
+                port:
+                  number: 5000
+            path: /
+            pathType: ImplementationSpecific

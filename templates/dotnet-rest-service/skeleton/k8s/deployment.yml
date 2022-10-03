@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${{ values.component_id }}
+  labels:
+    backstage.io/kubernetes-id: ${{ values.component_id }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${{ values.component_id }}
+  template:
+    metadata:
+      labels:
+        app: ${{ values.component_id }}
+        backstage.io/kubernetes-id: ${{ values.component_id }}
+    spec:
+      containers:
+        - image: lucamilan/${{ values.component_id }}:13646785
+          imagePullPolicy: Always
+          name: ${{ values.component_id }}
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: ASPNETCORE_URLS
+              value: "http://+:5000"
+          resources:
+            limits:
+              cpu: 250m
+              memory: 128Mi
+            requests:
+              cpu: 250m
+              memory: 128Mi
