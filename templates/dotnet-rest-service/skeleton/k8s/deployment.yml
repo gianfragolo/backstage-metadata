@@ -16,7 +16,7 @@ spec:
         backstage.io/kubernetes-id: ${{ values.component_id }}
     spec:
       containers:
-        - image: lucamilan/${{ values.component_id }}:13646785
+        - image: lucamilan/${{ values.component_id }}:latest
           imagePullPolicy: Always
           name: ${{ values.component_id }}
           env:
