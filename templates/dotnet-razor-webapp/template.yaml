@@ -6,7 +6,6 @@ metadata:
   description: "Create a simple webapp with ASP.NET"
   tags:
     - c#
-    - ASP.NET
     - Razor
     - dotnet
 spec:
