@@ -1,13 +1,5 @@
 name: Deploy Image To Okteto Cloud Platform 
 on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
   repository_dispatch:
     types: [build-image]
 
