@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: dotnet-razor-template
-  title: ASP.NET Razor Webapp
-  description: Create a simple webapp with ASP.NET
+  title: "ASP.NET Razor Webapp"
+  description: "Create a simple webapp with ASP.NET"
   tags:
     - c#
     - ASP.NET
