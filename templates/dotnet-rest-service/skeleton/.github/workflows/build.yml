@@ -15,5 +15,5 @@ jobs:
     secrets: inherit
     with:
       component: ${{values.component_id|lower}}
-      repoOwner: ${{values.repoOwner}}
-      repoName: ${{values.repoName}}
+      repoOwner: ${{values.repo_owner}}
+      repoName: ${{values.repo_name}}
