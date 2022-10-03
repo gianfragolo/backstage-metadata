@@ -13,7 +13,7 @@ on:
 
 jobs:
   dotnet-cd:
-    uses: gianfragolo/backstage-metadata/.github/workflows/deploy-image.yml@main
+    uses: gianfragolo/backstage-metadata/.github/workflows/deploy-okteto-cloud.yml@main
     secrets: inherit
     with:
       component: ${{values.component_id}}

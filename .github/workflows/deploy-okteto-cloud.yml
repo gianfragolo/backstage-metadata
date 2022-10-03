@@ -16,13 +16,28 @@ jobs:
     outputs:
       tag: ${{ steps.vars.outputs.tag }}
     steps:
-      - name: set repo name
+      - name: ✔️ set repo name
         shell: bash
         run: |
           echo "REPOSITORY_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
-      - name: Set current IMAGE_TAG
+
+      - name: 🧰 Set current IMAGE_TAG
         id: vars
         run: |
           if [ -z "${{ github.event.client_payload.tag }}"]; then echo "::set-output name=tag::latest"; exit 0; else echo "::set-output name=tag::${{github.event.client_payload.tag}}"; fi;
+      
       - name: Get current IMAGE_TAG
         run: echo "${{ steps.vars.outputs.tag }}" "${{ github.event_name }}" "${{ github.ref }}"
+
+      - name: 🥁 Create Okteto kube.config
+        if: success()
+        env:
+          KUBE_CONFIG: ${{ secrets.OKTETO_KUBE_CONFIG }}
+        run: |
+          echo $KUBE_CONFIG | base64 -d > kubeconfig
+
+      - name: 🔥 Update Kubernetes cluster
+        if: success()
+        run: |
+          kubectl --kubeconfig kubeconfig apply -f k8s/deployment.yml,k8s/service.yml --namespace=lucamilan
+          kubectl --kubeconfig kubeconfig get pods --namespace=lucamilan
