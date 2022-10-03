@@ -63,6 +63,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repoOwner }}\${{ inputs.repoName }}
+          repository: ${{ inputs.repoOwner }}/${{ inputs.repoName }}
           event-type: build-image
           client-payload: '{ "tag": "${{ steps.vars.outputs.tag }}" }'
