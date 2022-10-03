@@ -6,7 +6,7 @@ metadata:
   description: "Create a simple webapp with ASP.NET"
   tags:
     - c#
-    - Razor
+    - razor
     - dotnet
 spec:
   owner: group:platform-engineering
@@ -99,7 +99,7 @@ spec:
         repoVisibility: public
         deleteBranchOnMerge: true
         protectDefaultBranch: false
-        
+
     - id: register
       name: Register
       action: catalog:register
