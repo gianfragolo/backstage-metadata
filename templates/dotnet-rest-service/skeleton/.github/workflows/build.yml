@@ -10,8 +10,10 @@ on:
       - main
 
 jobs:
-  call-workflow:
+  dotnet-ci:
     uses: gianfragolo/backstage-metadata/.github/workflows/dotnet-build-and-push.yml@main
     secrets: inherit
     with:
       component: ${{values.component_id|lower}}
+      repoOwner: ${{values.repoOwner}}
+      repoName: ${{values.repoName}}

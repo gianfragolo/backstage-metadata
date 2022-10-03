@@ -1,9 +1,17 @@
-name: build and deploy a dotnet application
+name: build a dotnet application
 on:
   workflow_call:
     inputs:
       component:
-        description: "The name of the .NET component this repo belongs to"
+        description: "The name of the .NET component"
+        required: true
+        type: string
+      repoOwner:
+        description: "The name of the Owner"
+        required: true
+        type: string
+      repoName:
+        description: "The name of the Repository"
         required: true
         type: string
 
@@ -50,3 +58,11 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.component }}:latest, ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.component }}:${{ steps.vars.outputs.tag }}
+
+      - name: Dispatch build image event
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ inputs.repoOwner }}\${{ inputs.repoName }}
+          event-type: build-image
+          client-payload: '{ "tag": "${{ steps.vars.outputs.tag }}" }'
