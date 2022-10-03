@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name | dump }}
+  description: ${{ values.description | dump }}
+  annotations:
+    github.com/project-slug: gianfragolo/${{ values.repo_name }}
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: ${{ values.component_id }}
+    backstage.io/kubernetes-namespace: lucamilan
+  links:
+    - url: https://github.com/gianfragolo/${{ values.repo_name }}
+      title: Github Repo
+      icon: github
+    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger
+      title: Swagger
+      icon: code
+    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
+      title: API Spec
+      icon: code
+spec:
+  type: webapp
+  owner: group:${{ values.owner }}
+  system: ${{ values.system }}
+  lifecycle: experimental
+  

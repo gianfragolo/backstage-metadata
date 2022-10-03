@@ -1,0 +1,11 @@
+name: Deploy Image To Okteto Cloud Platform 
+on:
+  repository_dispatch:
+    types: [build-image]
+
+jobs:
+  dotnet-cd:
+    uses: gianfragolo/backstage-metadata/.github/workflows/deploy-okteto-cloud.yml@main
+    secrets: inherit
+    with:
+      component: ${{values.component_id}}

@@ -1,12 +1,13 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: dotnet-rest-template
-  title: ASP.NET REST Service
-  description: Create a simple REST microservice with ASP.NET
+  name: dotnet-razor-template
+  title: ASP.NET Razor Webapp
+  description: Create a simple webapp with ASP.NET
   tags:
     - c#
-    - rest
+    - ASP.NET
+    - Razor
     - dotnet
 spec:
   owner: group:platform-engineering
