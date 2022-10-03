@@ -1,4 +1,4 @@
-name: pull-request
+name: Deploy Image To Okteto Cloud Platform 
 on:
   push:
     branches:
@@ -16,4 +16,4 @@ jobs:
     uses: gianfragolo/backstage-metadata/.github/workflows/deploy-image.yml@main
     secrets: inherit
     with:
-      component: ${{values.component_id|lower}}
+      component: ${{values.component_id}}

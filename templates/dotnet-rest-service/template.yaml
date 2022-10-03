@@ -77,10 +77,10 @@ spec:
         url: ./skeleton
         copyWithoutRender: []
         values:
-          name: ${{ parameters.component_id }}
+          name: ${{ parameters.component_id}}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.application }}
-          component_id: ${{ parameters.component_id }}
+          component_id: ${{ parameters.component_id|lower}}
           solution_id: ${{ parameters.solution_id }}
           namespace: ${{ parameters.namespace }}
           description: ${{ parameters.description }}
