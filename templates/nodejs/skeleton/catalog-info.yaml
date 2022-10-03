@@ -6,6 +6,10 @@ metadata:
   annotations:
     github.com/project-slug: gianfragolo/${{ values.name }}
     backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/gianfragolo/${{ values.repo_name }}
+      title: Github Repo
+      icon: github
   labels:
     environments: ${{values.environments.replaceAll(',','-')}}
 spec:
