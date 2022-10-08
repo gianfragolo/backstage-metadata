@@ -4,7 +4,6 @@ on:
   push:
     paths-ignore:
       - "docs/**"
-      - "catalog-info.yaml"
     branches:
       - main
 

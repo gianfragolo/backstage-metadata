@@ -28,6 +28,6 @@ spec:
   {%- if values.dependsOn %}
   dependsOn:
     {%- for res in values.dependsOn.split(",") %}
-    - ${{res | dump}}
+    - resource:${{res}}
     {%- endfor %}
   {%- endif %}  

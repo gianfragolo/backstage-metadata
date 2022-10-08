@@ -3,7 +3,6 @@ on:
   push:
     paths-ignore:
       - "docs/**"
-      - "catalog-info.yaml"
     branches:
       - master
       - main
@@ -11,7 +10,8 @@ on:
     branches:
       - master
       - main
-
+  workflow_dispatch:
+  
 jobs:
   dotnet-ci:
     uses: gianfragolo/backstage-metadata/.github/workflows/dotnet-build-and-push.yml@main
