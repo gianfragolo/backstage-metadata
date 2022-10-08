@@ -97,7 +97,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
         deleteBranchOnMerge: true
-        protectDefaultBranch: false
+        protectDefaultBranch: true
 
     - id: register
       name: Register
