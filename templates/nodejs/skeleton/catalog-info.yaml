@@ -1,11 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | dump }}
-  description: ${{ values.description | dump }}
+  name: ${{values.component_id | dump}}
+  {%- if values.description %}
+  description: ${{values.description | dump}}
+  {%- endif %}
   tags:
     - nodejs
-    - javascript
   annotations:
     github.com/project-slug: gianfragolo/${{ values.name }}
     backstage.io/techdocs-ref: dir:.
@@ -13,10 +14,14 @@ metadata:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
       icon: github
-  labels:
-    environments: ${{values.environments.replaceAll(',','-')}}
 spec:
   type: service
   owner: group:${{ values.owner }}
   system: ${{ values.application }}
   lifecycle: experimental
+  {%- if values.providesApi %}
+  providesApis:
+    {%- for api in values.providesApi.split(",") %}
+    - ${{api | dump}}
+    {%- endfor %}
+  {%- endif %}

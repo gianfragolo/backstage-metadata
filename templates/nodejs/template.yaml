@@ -3,8 +3,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
 metadata:
   name: nodejs-template
-  title: Node.js Simple Template
-  description: Scaffolder that creates a simple Node.js service
+  title: Node.js Microservice
+  description: Scaffolder that creates a simple Node.js Microservice
 spec:
   owner: group:platform-engineering
   type: service
@@ -17,8 +17,6 @@ spec:
         - name
         - owner
         - application
-        - description
-        - environments
       properties:
         name:
           title: Name
@@ -47,11 +45,6 @@ spec:
           ui:options:
             allowedKinds:
               - System
-        environments:
-          title: Environments
-          type: string
-          description: Environments needed by this application
-          enum: ["development", "staging", "production"]
     - title: Choose a location
       required:
         - repoUrl
@@ -66,9 +59,12 @@ spec:
             allowedOwners:
               - gianfragolo
               - lucamilan
-
-  # These steps are executed in the scaffolder backend, using data that we gathered
-  # via the parameters above.
+    - title: Choose consuming api
+      properties:
+        consumesApi:
+          title: Consumes API
+          type: string
+          description: This service consumes api spec.
   steps:
     # Each step executes an action, in this case one templates files into the working directory.
     - id: fetch-base
@@ -77,11 +73,12 @@ spec:
       input:
         url: ./skeleton
         values:
+          component_id: ${{ parameters.name|lower }}
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
           application: ${{ parameters.application }}
           description: ${{ parameters.description }}
-          environments: ${{ parameters.environments }}
+          providesApi: ${{ parameters.consumesApi }}
           repo_url: https://${{ (parameters.repoUrl | parseRepoUrl)["host"] }}/${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}/${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
           repo_host: ${{ (parameters.repoUrl | parseRepoUrl)["host"] }}
           repo_name: ${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}

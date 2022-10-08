@@ -68,7 +68,6 @@ spec:
             allowedOwners:
               - gianfragolo
               - lucamilan
-
   steps:
     - id: template
       name: Merge Skeleton + Template
@@ -99,7 +98,7 @@ spec:
         repoVisibility: public
         deleteBranchOnMerge: true
         protectDefaultBranch: false
-        
+
     - id: register
       name: Register
       action: catalog:register
