@@ -8,6 +8,7 @@ metadata:
       title: Github
   annotations:
     github.com/project-slug: gianfragolo/backstage-metadata
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: metadata
   system: process-improvement
