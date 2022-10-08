@@ -17,11 +17,8 @@ metadata:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
       icon: github
-    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger
-      title: Swagger
-      icon: code
-    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
-      title: API Spec
+    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net
+      title: Homepage
       icon: code
 spec:
   type: website
