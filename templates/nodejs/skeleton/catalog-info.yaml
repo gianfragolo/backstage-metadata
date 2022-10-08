@@ -25,3 +25,9 @@ spec:
     - ${{api | dump}}
     {%- endfor %}
   {%- endif %}
+  {%- if values.dependsOn %}
+  dependsOn:
+    {%- for res in values.dependsOn.split(",") %}
+    - ${{res | dump}}
+    {%- endfor %}
+  {%- endif %}  

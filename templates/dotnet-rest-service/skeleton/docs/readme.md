@@ -18,6 +18,7 @@ Here some details
 * solution_id: ${{ values.solution_id }}
 * description: ${{ values.description }}
 * namespace: ${{ values.namespace }}
+* dependsOn: ${{ values.dependsOn }}
 * repoUrl: ${{ values.repo_url }}
 * repoName: ${{ values.repo_name }}
 * repoOwner: ${{ values.repo_owner }}

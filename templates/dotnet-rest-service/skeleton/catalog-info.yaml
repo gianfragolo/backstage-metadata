@@ -30,6 +30,12 @@ spec:
   owner: group:${{ values.owner }}
   system: ${{ values.system }}
   lifecycle: experimental
+  {%- if values.dependsOn %}
+  dependsOn:
+    {%- for res in values.dependsOn.split(",") %}
+    - ${{res | dump}}
+    {%- endfor %}
+  {%- endif %}    
   # definition:
   #   $text: https://googlepay-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
   definition: |
