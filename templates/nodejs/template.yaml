@@ -5,6 +5,10 @@ metadata:
   name: nodejs-template
   title: Node.js Microservice
   description: Scaffolder that creates a simple Node.js Microservice
+  tags:
+  - nodejs#
+  - rest
+  - microservice
 spec:
   owner: group:platform-engineering
   type: service
@@ -90,13 +94,11 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: This is ${{ parameters.name }}
-        repo_url: https://${{ (parameters.repoUrl | parseRepoUrl)["host"] }}/${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}/${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
-        repo_host: ${{ (parameters.repoUrl | parseRepoUrl)["host"] }}
-        repo_name: ${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
-        repo_owner: ${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
         deleteBranchOnMerge: true
+        protectDefaultBranch: false
 
     # The final step is to register our new component in the catalog.
     - id: register
