@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: payment-db
+  description: PostgreSQL 14
+  tags:
+    - database
+spec:
+  type: database
+  system: database-resources
+  owner: devops
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: payment-cache
+  description: Redis 5
+  tags:
+    - database
+spec:
+  type: database
+  system: database-resources
+  owner: devops
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: payment-events
+  description: MongoDb NOSQL
+  tags:
+    - database
+    - nosql
+spec:
+  type: database
+  system: database-resources
+  owner: devops
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka
+  description: Streaming Platform
+spec:
+  type: database
+  owner: devops
+  system: database-resources
+  lifecycle: production

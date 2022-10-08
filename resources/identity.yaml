@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: aws-cognito
+  description: AWS Cognito instance
+  tags:
+    - oidc
+    - idp
+spec:
+  type: service
+  system: application-services
+  lifecycle: production
+  owner: devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: github-oauth
+  description: Github OAuth
+  links:
+    - url: https://github.com/organizations/gianfragolo/settings/applications/2005450
+      title: Github OAuth Settings
+      icon: github
+  tags:
+    - idp
+    - oauth
+spec:
+  type: service
+  system: application-services
+  lifecycle: production
+  owner: devops
+  dependencyOf:
+    - component:backstage

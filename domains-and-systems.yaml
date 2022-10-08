@@ -19,8 +19,17 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: cloud-resources
-  description: Everything about Cloud Management
+  name: application-services
+  description: Everything about Application Services Management
+spec:
+  owner: devops
+  domain: operations
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: database-resources
+  description: Everything about Database Management
 spec:
   owner: devops
   domain: operations
