@@ -1,6 +1,9 @@
 name: Build .NET component and Docker push
 on:
   push:
+    paths-ignore:
+      - "docs/**"
+      - "catalog-info.yaml"
     branches:
       - master
       - main
