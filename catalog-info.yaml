@@ -6,8 +6,6 @@ metadata:
   links:
     - url: https://github.com/gianfragolo/backstage-metadata
       title: Github
-  tags:
-    - backstage
 annotations:
     github.com/project-slug: gianfragolo/backstage-metadata
     backstage.io/techdocs-ref: dir:.
