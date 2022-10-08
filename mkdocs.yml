@@ -1,7 +1,7 @@
 site_name: Backstage Metadata
 site_description: "Backstage basic metadata, like templates, entites, etc."
 repo_url: https://github.com/gianfragolo/backstage-metadata
-edit_uri: edit/master/docs
+edit_uri: edit/main/docs
 
 nav:
   - "Home": "index.md"
