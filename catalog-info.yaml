@@ -3,10 +3,12 @@ kind: Component
 metadata:
   name: backstage-metadata
   description: Metadata describing Gianfragolo Organization
+  tags:
+    - backstage
   links:
     - url: https://github.com/gianfragolo/backstage-metadata
       title: Github
-annotations:
+  annotations:
     github.com/project-slug: gianfragolo/backstage-metadata
     backstage.io/techdocs-ref: dir:.
 spec:
