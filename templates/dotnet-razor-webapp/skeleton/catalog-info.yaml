@@ -24,7 +24,7 @@ metadata:
       title: API Spec
       icon: code
 spec:
-  type: webapp
+  type: website
   owner: group:${{ values.owner }}
   system: ${{ values.system }}
   lifecycle: experimental

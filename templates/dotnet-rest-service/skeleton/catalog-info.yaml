@@ -4,11 +4,9 @@ metadata:
   name: ${{ values.component_id | dump }}
   description: ${{ values.description | dump }}
   tags:
-    - c#
     - api
     - rest
     - aspnet
-    - dotnet
   annotations:
     github.com/project-slug: gianfragolo/${{ values.repo_name }}
     backstage.io/techdocs-ref: dir:.
