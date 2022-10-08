@@ -20,6 +20,9 @@ metadata:
     - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net
       title: Homepage
       icon: code
+    - url: https://cloud.okteto.com/#/spaces/lucamilan
+      title: Okteto Platform
+      icon: cloud      
 spec:
   type: website
   owner: group:${{ values.owner }}

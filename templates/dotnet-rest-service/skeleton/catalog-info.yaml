@@ -16,6 +16,9 @@ metadata:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
       icon: github
+    - url: https://cloud.okteto.com/#/spaces/lucamilan
+      title: Okteto Platform
+      icon: cloud      
     - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger
       title: Swagger
       icon: code
