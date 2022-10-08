@@ -6,7 +6,7 @@ metadata:
   title: Node.js Microservice
   description: Scaffolder that creates a simple Node.js Microservice
   tags:
-  - nodejs#
+  - nodejs
   - rest
   - microservice
 spec:
