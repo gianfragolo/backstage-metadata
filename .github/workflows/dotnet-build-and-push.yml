@@ -18,7 +18,6 @@ on:
 jobs:
   build-app:
     runs-on: ubuntu-latest
-
     steps:
       - name: ✔️ Set repo name
         shell: bash
@@ -45,6 +44,7 @@ jobs:
   push-image:
     runs-on: ubuntu-latest
     needs: build-app
+    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && github.event_name != 'pull_request'
     outputs:
       tag: ${{ steps.vars.outputs.tag }}
     steps:
@@ -70,7 +70,6 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.component }}:latest, ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.component }}:${{ steps.vars.outputs.tag }}
 
       - name: 🚒 Dispatch build image event
-        if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && github.event_name != 'pull_request'
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
