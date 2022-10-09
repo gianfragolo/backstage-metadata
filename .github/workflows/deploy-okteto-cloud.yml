@@ -9,7 +9,6 @@ on:
 
 jobs:
   deploy-image-to-okteto:
-    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
     defaults:
       run:
