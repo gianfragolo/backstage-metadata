@@ -8,7 +8,7 @@ metadata:
 spec:
   type: database
   system: database-resources
-  owner: devops
+  owner: platform-operations
   lifecycle: production
   dependencyOf:
     - component:backstage
