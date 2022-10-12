@@ -10,6 +10,8 @@ spec:
   system: database-resources
   owner: devops
   lifecycle: production
+  dependencyOf:
+    - component:backstage
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
