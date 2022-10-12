@@ -21,7 +21,7 @@ metadata:
 spec:
   type: database
   system: database-resources
-  owner: devops
+  owner: platform-operations
   lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
@@ -35,7 +35,7 @@ metadata:
 spec:
   type: database
   system: database-resources
-  owner: devops
+  owner: platform-operations
   lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
@@ -45,6 +45,6 @@ metadata:
   description: Streaming Platform
 spec:
   type: database
-  owner: devops
+  owner: platform-operations
   system: database-resources
   lifecycle: production
