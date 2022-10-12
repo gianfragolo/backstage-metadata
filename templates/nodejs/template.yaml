@@ -103,7 +103,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
         deleteBranchOnMerge: true
-        protectDefaultBranch: false
+        protectDefaultBranch: true
 
     # The final step is to register our new component in the catalog.
     - id: register
