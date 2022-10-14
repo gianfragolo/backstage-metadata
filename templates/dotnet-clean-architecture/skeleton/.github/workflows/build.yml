@@ -1,0 +1,23 @@
+name: Build .NET component and Docker push
+on:
+  push:
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+  
+jobs:
+  dotnet-ci:
+    uses: gianfragolo/backstage-metadata/.github/workflows/dotnet-build-and-push.yml@main
+    secrets: inherit
+    with:
+      component: ${{values.component_id}}
+      repoOwner: ${{values.repo_owner}}
+      repoName: ${{values.repo_name}}
