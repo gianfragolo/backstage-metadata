@@ -1,4 +1,4 @@
-name: build a dotnet application
+name: deploy app to okteto
 on:
   workflow_call:
     inputs:
@@ -28,7 +28,7 @@ jobs:
         id: vars
         run: |
           if [ -z "${{ github.event.client_payload.tag }}"]; then echo "::set-output name=tag::latest"; exit 0; else echo "::set-output name=tag::${{github.event.client_payload.tag}}"; fi;
-      
+
       - name: Get current IMAGE_TAG
         run: echo "${{ steps.vars.outputs.tag }}" "${{ github.event_name }}" "${{ github.ref }}"
 

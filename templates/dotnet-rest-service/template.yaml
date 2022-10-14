@@ -98,6 +98,7 @@ spec:
         repoVisibility: public
         deleteBranchOnMerge: true
         protectDefaultBranch: false
+        requireCodeOwnerReviews: false
 
     - id: register
       name: Register
