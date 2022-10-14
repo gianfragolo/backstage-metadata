@@ -14,7 +14,10 @@ metadata:
   links:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
-      icon: github
+      icon: github      
+    - url: https://hub.docker.com/repository/docker/lucamilan/${{ values.component_id }}
+      title: Dockerhub
+      icon: docker
 spec:
   type: website
   owner: group:${{ values.owner }}

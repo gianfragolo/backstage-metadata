@@ -16,6 +16,9 @@ metadata:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
       icon: github
+    - url: https://hub.docker.com/repository/docker/lucamilan/${{ values.component_id }}
+      title: Dockerhub
+      icon: docker
     - url: https://cloud.okteto.com/#/spaces/lucamilan
       title: Okteto Platform
       icon: cloud      
