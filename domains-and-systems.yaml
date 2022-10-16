@@ -13,7 +13,7 @@ metadata:
   name: payments
   description: Everything about Payments
 spec:
-  owner: product-development
+  owner: application-development
 ---
 ## SYSTEM
 apiVersion: backstage.io/v1alpha1

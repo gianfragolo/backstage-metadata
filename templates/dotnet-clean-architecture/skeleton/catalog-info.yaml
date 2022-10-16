@@ -5,27 +5,19 @@ metadata:
   description: ${{ values.description | dump }}
   tags:
   - c#
-  - razor
   - aspnet
   - dotnet
   annotations:
     github.com/project-slug: gianfragolo/${{ values.repo_name }}
     backstage.io/techdocs-ref: dir:.
-    backstage.io/kubernetes-id: ${{ values.component_id }}
-    backstage.io/kubernetes-namespace: lucamilan
+    backstage.io/adr-location: docs/adrs
   links:
     - url: https://github.com/gianfragolo/${{ values.repo_name }}
       title: Github Repo
-      icon: github
+      icon: github      
     - url: https://hub.docker.com/repository/docker/lucamilan/${{ values.component_id }}
       title: Dockerhub
-      icon: docker      
-    - url: https://${{ values.component_id }}-lucamilan.cloud.okteto.net
-      title: Homepage
-      icon: code
-    - url: https://cloud.okteto.com/#/spaces/lucamilan
-      title: Okteto Platform
-      icon: cloud      
+      icon: docker
 spec:
   type: website
   owner: group:${{ values.owner }}
