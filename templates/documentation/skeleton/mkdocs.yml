@@ -1,0 +1,29 @@
+# Site name
+site_name: Platform template for Documentation
+site_description: "Docs like a code approach with Backstage. This is a sample template for Platoform docs"
+repo_url: https://github.com/gianfragolo/my-app-docs
+edit_uri: edit/main/docs
+
+# Navigation menu
+nav:
+  - Home: "index.md"
+  - Introduction: "introduction.md"
+  - Install: "install.md"
+  - Configuration: "configuration.md"
+  - Example: "example.md"
+  - Development: "development.md"
+  - Deployment: "deployment.md"
+  - Release notes: "release_notes.md"
+
+plugins:
+  - search
+  - techdocs-core
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/gianfragolo
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/lucamilan/
+
+copyright: Copyright &copy; 2022 Luca Milan

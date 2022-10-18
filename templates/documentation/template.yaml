@@ -1,0 +1,102 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: docs-template
+  title: Platform Documentation Template
+  description: This is a Documentation Template for all platform team
+  tags:
+    - documentation
+    - markdown
+spec:
+  owner: group:platform-engineering
+  type: service
+
+  parameters:
+    - title: Fill data in some steps
+      required:
+        - component_id
+        - description
+        - system
+        - owner
+      properties:
+        component_id:
+          title: Name
+          type: string
+          description: Unique name of the sofware component
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this documentation is for.
+        system:
+          title: System
+          type: string
+          description: System which this documentation belongs to
+          ui:field: OwnedEntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the documentation
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+            allowedOwners:
+              - gianfragolo
+              - lucamilan
+
+  steps:
+    - id: template
+      name: Merge Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        copyWithoutRender: []
+        values:
+          owner: ${{ parameters.owner }}
+          system: ${{ parameters.system }}
+          component_id: ${{ parameters.component_id|lower}}
+          description: ${{ parameters.description }}
+          repo_url: https://${{ (parameters.repoUrl | parseRepoUrl)["host"] }}/${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}/${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
+          repo_host: ${{ (parameters.repoUrl | parseRepoUrl)["host"] }}
+          repo_name: ${{ (parameters.repoUrl | parseRepoUrl)["repo"] }}
+          repo_owner: ${{ (parameters.repoUrl | parseRepoUrl)["owner"] }}
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: private
+        deleteBranchOnMerge: true
+        protectDefaultBranch: true
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: "${{ steps.publish.output.repoContentsUrl }}"
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}

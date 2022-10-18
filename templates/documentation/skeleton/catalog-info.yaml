@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.component_id|dump}}
+  description: ${{values.description|dump}}
+  tags:
+    - backstage
+    - docs
+  links:
+    - url: https://github.com/gianfragolo/${{ values.repo_name }}
+      title: Github
+  annotations:
+    github.com/project-slug: gianfragolo/${{ values.repo_name }}
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: documentation
+  owner: group:${{ values.owner }}
+  system: ${{ values.system }}
+  lifecycle: production
