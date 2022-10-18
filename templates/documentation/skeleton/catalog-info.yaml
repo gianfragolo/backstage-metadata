@@ -17,3 +17,9 @@ spec:
   owner: group:${{ values.owner }}
   system: ${{ values.system }}
   lifecycle: production
+  {%- if values.dependencyOf %}
+  dependencyOf:
+    {%- for dep in values.dependencyOf.split(",") %}
+    - ${{dep}}
+    {%- endfor %}
+  {%- endif %}  
