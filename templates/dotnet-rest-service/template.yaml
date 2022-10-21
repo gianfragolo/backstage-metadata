@@ -96,6 +96,7 @@ spec:
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
+        defaultBranch: main
         deleteBranchOnMerge: true
         protectDefaultBranch: false
         requireCodeOwnerReviews: false
