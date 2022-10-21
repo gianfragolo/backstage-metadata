@@ -34,7 +34,7 @@ spec:
   system: ${{ values.system }}
   lifecycle: experimental
   # definition:
-  #   $text: https://googlepay-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
+  #   $text: https://${{ values.component_id }}-lucamilan.cloud.okteto.net/swagger/v1/swagger.json
   definition: |
     {
     "openapi": "3.0.1",
@@ -42,6 +42,12 @@ spec:
       "title": ${{ values.name | dump }},
       "version": "1.0"
     },
+    "servers": [
+      {
+      "url": "https://${{ values.component_id }}-lucamilan.cloud.okteto.net/",
+      "description": "Okteto-Development"
+      }
+    ],
     "paths": {
       "/Rest": {
         "get": {
